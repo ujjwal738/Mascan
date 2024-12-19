@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Mascan/static/css/main.3c52e046.css",
+    "main.js": "/Mascan/static/js/main.41c73bfe.js",
+    "static/js/488.e75445ad.chunk.js": "/Mascan/static/js/488.e75445ad.chunk.js",
+    "static/media/background.jpg": "/Mascan/static/media/background.00db8c4880cc67909649.jpg",
+    "index.html": "/Mascan/index.html",
+    "main.3c52e046.css.map": "/Mascan/static/css/main.3c52e046.css.map",
+    "main.41c73bfe.js.map": "/Mascan/static/js/main.41c73bfe.js.map",
+    "488.e75445ad.chunk.js.map": "/Mascan/static/js/488.e75445ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c52e046.css",
+    "static/js/main.41c73bfe.js"
+  ]
+}
