@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# React.js v19 + React-Canvas-Draw Integration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project demonstrates the integration of **React.js v19** with the `react-canvas-draw` library to create a canvas drawing application. Users can draw freely on the canvas, clear their drawings, and even save or load them as JSON data for persistence.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Freehand Drawing:** Draw directly on the canvas.
+- **Save & Load Functionality:** Save your drawing as JSON and reload it anytime.
+- **Clear Canvas:** Clear the canvas with a single click.
+- **Modern React Setup:** Built with the latest React.js v19 features.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+Follow the steps below to set up and run the project locally:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `npm run build`
+```bash
+git clone https://github.com/ujjwal738/assignment-intern.git
+cd assignment-intern
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Install Dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install --legacy-peer-deps
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> **Note:** The `--legacy-peer-deps` flag is required to resolve dependency conflicts between React v19 and `react-canvas-draw`, which is compatible with React 16.x or 17.x.
 
-### `npm run eject`
+### 3. Start the Application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the app in action.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔗 Live Demo
 
-## Learn More
+Check out the live version of this project here: [Live Demo](https://ujjwal738.github.io/Mascan/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔧 Usage
 
-### Code Splitting
+1. **Draw on the Canvas:** Use your mouse or touchscreen to draw on the canvas.
+2. **Save the Drawing:** Click the `Save` button to store your drawing as JSON.
+3. **Load the Drawing:** Paste the saved JSON in the text area and click `Load` to restore the drawing.
+4. **Clear the Canvas:** Click `Clear` to reset the canvas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🛠️ Code Highlights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### **Key Libraries**
 
-### Making a Progressive Web App
+- [React.js v19](https://react.dev/) - A JavaScript library for building user interfaces.
+- [react-canvas-draw](https://github.com/embiem/react-canvas-draw) - A lightweight library for canvas drawing in React applications.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### **Sample Code**
 
-### Advanced Configuration
+Here’s an example of how `react-canvas-draw` is used in this project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```jsx
+import React, { useRef } from "react";
+import CanvasDraw from "react-canvas-draw";
 
-### Deployment
+const App = () => {
+  const canvasRef = useRef(null);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  const saveDrawing = () => {
+    const data = canvasRef.current.getSaveData();
+    console.log("Saved Drawing Data:", data);
+  };
 
-### `npm run build` fails to minify
+  const loadDrawing = (data) => {
+    canvasRef.current.loadSaveData(data, true);
+  };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  return (
+    <div>
+      <h1>React Canvas Draw</h1>
+      <CanvasDraw ref={canvasRef} />
+      <button onClick={saveDrawing}>Save</button>
+      <button onClick={() => loadDrawing(prompt("Paste JSON data here:"))}>Load</button>
+      <button onClick={() => canvasRef.current.clear()}>Clear</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! If you encounter any issues or have feature requests, feel free to open an issue or create a pull request.
+
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📚 Additional Resources
+
+- [React.js Documentation](https://react.dev/)
+- [react-canvas-draw GitHub Repository](https://github.com/embiem/react-canvas-draw)
+
+---
+
+## 🙌 Acknowledgments
+
+Special thanks to the contributors of [react-canvas-draw](https://github.com/embiem/react-canvas-draw) for their awesome library!
